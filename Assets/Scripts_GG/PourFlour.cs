@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class PourFlour : MonoBehaviour
 {
+    public ParticleSystem flour;
     // Start is called before the first frame update
     void Start()
     {
-        
+      //  flour.SetActive(false);
     }
 
     // Update is called once per frame
@@ -15,15 +16,18 @@ public class PourFlour : MonoBehaviour
     {
         
     }
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        GetComponent<ParticleSystem>().Play();
-        ParticleSystem.EmissionModule em = GetComponent<ParticleSystem>().emission;
-        em.enabled = true;
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        GetComponent<ParticleSystem>().Stop();
+        if ((other.tag == "Bowl"))
+        {
+             // flour.SetActive(true);
+            flour.Play();
+        }
       
     }
+   /* private void OnTriggerExit(Collider other)
+    {
+     flour.Stop();
+      
+    }*/
 }
