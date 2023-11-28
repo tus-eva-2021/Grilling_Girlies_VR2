@@ -23,11 +23,16 @@ public class PourFlour : MonoBehaviour
              // flour.SetActive(true);
             flour.Play();
         }
-      
+        else
+        {
+            flour.Stop();
+            flour.Clear();
+        }
     }
-   /* private void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider other)
     {
      flour.Stop();
-      
-    }*/
+        flour.Clear();
+
+    }
 }
